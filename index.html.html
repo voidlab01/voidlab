@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID LAB | 김석민 대표</title>
+    <meta name="description" content="Interior Design · 수도권 전 지역 시공·상담">
+    <meta name="theme-color" content="#D8D4CC">
+
+    <!-- Open Graph 메타 태그 (카카오톡 / 문자 링크 공유 미리보기용) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VOID LAB | 김석민 대표">
+    <meta property="og:description" content="Interior Design · 수도권 전 지역 시공·상담">
+    <!-- 배포 후 YOUR_GITHUB_ID 부분을 본인 GitHub 아이디로 변경하세요 -->
+    <meta property="og:image" content="https://voidlab01.github.io/voidlab/logo.jpg">
+    <meta property="og:url" content="https://voidlab01.github.io/voidlab/">
+
+    <!-- Google Fonts: Cormorant Garamond (영문 세리프 포인트) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Pretendard 웹폰트 CDN (한글 본문 가독성 최적화) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- VOID LAB 브랜드 디자인 토큰 설정 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'void-backdrop': '#EFECE7',
+                        'void-header': '#D8D4CC',
+                        'void-surface': '#FAF9F7',
+                        'void-charcoal': '#2B2A29',
+                        'void-ink': '#3E3C3A',
+                        'void-stone': '#8A847C',
+                        'void-hairline': '#EAE6E0',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Pretendard"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-void-backdrop text-void-charcoal font-sans antialiased selection:bg-void-header selection:text-void-charcoal min-h-screen flex flex-col items-center justify-center sm:py-10 sm:px-4">
+
+    <!-- 모바일 명함 메인 카드 컨테이너 (모바일: 풀스크린 / 데스크톱: 최대 430px 중앙 배치) -->
+    <main class="w-full max-w-[430px] min-h-screen sm:min-h-0 bg-void-surface sm:rounded-2xl sm:shadow-[0_24px_64px_rgba(43,42,41,0.09)] sm:border sm:border-void-hairline flex flex-col justify-between overflow-hidden">
+
+        <div>
+            <!-- 1. 브랜드 헤더 섹션 (로고 원본 배경색 자동 추출 및 기본 #D8D4CC 매칭) -->
+            <header
+                id="cardHeader"
+                class="bg-void-header px-8 pt-12 pb-10 flex flex-col items-center justify-center text-center transition-colors duration-200"
+            >
+                <!-- 배포용 원본 로고 이미지 (비율 변형·크롭 없음) -->
+                <img
+                    id="logoImg"
+                    src="./logo.jpg"
+                    alt="VOID LAB Logo"
+                    style="width: auto; max-width: 220px; height: auto; display: block; margin: 0 auto;"
+                    onload="syncHeaderBackground(this)"
+                    onerror="showLogoFallback()"
+                />
+
+                <!-- 로고 파일 미로드 시(독립 프리뷰 환경 등) 깨진 아이콘 없이 표시되는 타이포 폴백 -->
+                <div
+                    id="logoTextFallback"
+                    class="hidden flex-col items-center justify-center py-4 select-none"
+                    aria-label="VOID LAB"
+                >
+                    <span class="font-serif text-[40px] font-semibold tracking-[0.22em] pl-[0.22em] leading-none text-white">
+                        VOID
+                    </span>
+                    <span class="font-serif text-[36px] font-semibold tracking-[0.38em] pl-[0.38em] leading-none text-void-charcoal mt-2">
+                        LAB
+                    </span>
+                </div>
+
+                <!-- 로고 하단 영문 서브 타이틀 -->
+                <p class="font-serif text-[14.5px] sm:text-[15.5px] font-medium text-[#363533] tracking-[0.28em] pl-[0.28em] mt-4 select-none">
+                    Interior Design
+                </p>
+            </header>
+
+            <!-- 2. 대표자 프로필 & 시공 권역 섹션 -->
+            <section class="px-7 pt-8 pb-7 bg-void-surface border-b border-void-hairline">
+                <div class="flex items-baseline gap-2.5">
+                    <h1 class="text-[23px] font-bold tracking-[0.14em] text-void-charcoal leading-none">
+                        김석민
+                    </h1>
+                    <span class="text-[13.5px] font-medium tracking-[0.14em] text-void-stone leading-none">
+                        대표
+                    </span>
+                </div>
+
+                <!-- 미니멀 건축 구분선 -->
+                <div class="w-7 h-[1px] bg-void-header my-4"></div>
+
+                <!-- 시공·상담 권역 뱃지 -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-void-hairline rounded-lg text-[12.5px] font-medium text-void-ink tracking-[0.01em]">
+                    <svg class="w-3.5 h-3.5 text-void-stone shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" />
+                        <circle cx="12" cy="10" r="2.2" />
+                    </svg>
+                    <span>수도권 전 지역 시공 · 상담</span>
+                </div>
+            </section>
+
+            <!-- 3. 신규 고객 상담 핵심 CTA 버튼 섹션 (최우선 배치) -->
+            <section class="px-7 py-6 space-y-3 bg-void-surface">
+                <!-- 1순위 CTA: 네이버 블로그 포트폴리오 -->
+                <a
+                    href="https://blog.naver.com/voidlab_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full min-h-[52px] flex items-center justify-between px-5 py-3.5 bg-void-charcoal text-white text-[14px] font-medium tracking-[0.02em] rounded-xl transition-colors duration-200 hover:bg-void-ink active:bg-black"
+                >
+                    <span class="flex items-center gap-3">
+                        <svg class="w-[18px] h-[18px] text-void-header shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                        <span>포트폴리오 보기 (네이버 블로그)</span>
+                    </span>
+                    <svg class="w-4 h-4 text-white/75 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14" />
+                        <path d="M13 6l6 6-6 6" />
+                    </svg>
+                </a>
+
+                <!-- 2순위 CTA: 카카오톡 오픈채팅 상담 -->
+                <a
+                    href="https://open.kakao.com/o/sOwPw83g"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full min-h-[52px] flex items-center justify-between px-5 py-3.5 bg-white border border-void-charcoal/85 text-void-charcoal text-[14px] font-medium tracking-[0.02em] rounded-xl transition-colors duration-200 hover:bg-void-backdrop/70 active:bg-void-header/40"
+                >
+                    <span class="flex items-center gap-3">
+                        <svg class="w-[18px] h-[18px] text-void-charcoal shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                        </svg>
+                        <span>카카오톡 오픈채팅 상담</span>
+                    </span>
+                    <svg class="w-4 h-4 text-void-stone shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14" />
+                        <path d="M13 6l6 6-6 6" />
+                    </svg>
+                </a>
+            </section>
+
+            <!-- 4. 퀵 액션 바 (전화 걸기 / 문자 보내기 / 연락처 저장) -->
+            <section class="px-7 pb-6 bg-void-surface border-b border-void-hairline">
+                <div class="grid grid-cols-3 gap-2.5">
+                    <!-- 전화 걸기 -->
+                    <a
+                        href="tel:010-2882-8977"
+                        class="min-h-[64px] flex flex-col items-center justify-center py-3 px-2 gap-1.5 bg-white border border-void-hairline rounded-xl text-void-charcoal transition-colors duration-150 hover:border-void-stone/70 hover:bg-void-backdrop/40 active:bg-void-backdrop"
+                    >
+                        <svg class="w-[18px] h-[18px] text-void-charcoal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        <span class="text-[12px] font-medium tracking-[0.01em]">전화 걸기</span>
+                    </a>
+
+                    <!-- 문자 보내기 -->
+                    <a
+                        href="sms:010-2882-8977"
+                        class="min-h-[64px] flex flex-col items-center justify-center py-3 px-2 gap-1.5 bg-white border border-void-hairline rounded-xl text-void-charcoal transition-colors duration-150 hover:border-void-stone/70 hover:bg-void-backdrop/40 active:bg-void-backdrop"
+                    >
+                        <svg class="w-[18px] h-[18px] text-void-charcoal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 3V5z" />
+                            <path d="M8 9h8" />
+                            <path d="M8 12.5h5" />
+                        </svg>
+                        <span class="text-[12px] font-medium tracking-[0.01em]">문자 보내기</span>
+                    </a>
+
+                    <!-- 연락처 저장 (UTF-8 vCard .vcf 다운로드) -->
+                    <button
+                        type="button"
+                        id="saveContactBtn"
+                        class="min-h-[64px] flex flex-col items-center justify-center py-3 px-2 gap-1.5 bg-white border border-void-hairline rounded-xl text-void-charcoal transition-colors duration-150 hover:border-void-stone/70 hover:bg-void-backdrop/40 active:bg-void-backdrop"
+                    >
+                        <svg class="w-[18px] h-[18px] text-void-charcoal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="8.5" cy="7" r="4" />
+                            <path d="M20 8v6" />
+                            <path d="M17 11h6" />
+                        </svg>
+                        <span class="text-[12px] font-medium tracking-[0.01em]">연락처 저장</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 5. 상세 연락처 정보 섹션 -->
+            <section class="px-7 py-3 bg-white">
+                <dl class="divide-y divide-void-hairline">
+                    <!-- Mobile -->
+                    <div class="py-3 flex items-center justify-between gap-3 min-h-[56px]">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 min-w-0">
+                            <dt class="w-[74px] shrink-0 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-void-stone">
+                                Mobile
+                            </dt>
+                            <dd class="text-[14px] text-void-charcoal tracking-[0.02em] truncate">
+                                <a href="tel:010-2882-8977" class="hover:underline underline-offset-4">010.2882.8977</a>
+                            </dd>
+                        </div>
+                        <button
+                            type="button"
+                            data-copy="010-2882-8977"
+                            class="copy-btn shrink-0 min-h-[44px] px-1 flex items-center justify-center text-[11.5px] font-medium text-void-stone hover:text-void-charcoal transition-colors"
+                        >
+                            <span class="px-3 py-1.5 border border-void-hairline rounded-lg bg-void-surface hover:border-void-charcoal">복사</span>
+                        </button>
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="py-3 flex items-center justify-between gap-3 min-h-[56px]">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 min-w-0">
+                            <dt class="w-[74px] shrink-0 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-void-stone">
+                                E-mail
+                            </dt>
+                            <dd class="text-[14px] text-void-charcoal tracking-[0.01em] truncate">
+                                <a href="mailto:voidlab01@naver.com" class="hover:underline underline-offset-4">voidlab01@naver.com</a>
+                            </dd>
+                        </div>
+                        <button
+                            type="button"
+                            data-copy="voidlab01@naver.com"
+                            class="copy-btn shrink-0 min-h-[44px] px-1 flex items-center justify-center text-[11.5px] font-medium text-void-stone hover:text-void-charcoal transition-colors"
+                        >
+                            <span class="px-3 py-1.5 border border-void-hairline rounded-lg bg-void-surface hover:border-void-charcoal">복사</span>
+                        </button>
+                    </div>
+
+                    <!-- Blog -->
+                    <div class="py-3 flex items-center justify-between gap-3 min-h-[56px]">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 min-w-0">
+                            <dt class="w-[74px] shrink-0 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-void-stone">
+                                Blog
+                            </dt>
+                            <dd class="text-[14px] text-void-charcoal tracking-[0.01em] truncate">
+                                <a
+                                    href="https://blog.naver.com/voidlab_"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="hover:underline underline-offset-4 decoration-void-stone"
+                                >
+                                    blog.naver.com/voidlab_
+                                </a>
+                            </dd>
+                        </div>
+                        <button
+                            type="button"
+                            data-copy="https://blog.naver.com/voidlab_"
+                            class="copy-btn shrink-0 min-h-[44px] px-1 flex items-center justify-center text-[11.5px] font-medium text-void-stone hover:text-void-charcoal transition-colors"
+                        >
+                            <span class="px-3 py-1.5 border border-void-hairline rounded-lg bg-void-surface hover:border-void-charcoal">복사</span>
+                        </button>
+                    </div>
+
+                    <!-- KakaoTalk -->
+                    <div class="py-3 flex items-center justify-between gap-3 min-h-[56px]">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 min-w-0">
+                            <dt class="w-[74px] shrink-0 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-void-stone">
+                                KakaoTalk
+                            </dt>
+                            <dd class="text-[14px] text-void-charcoal tracking-[0.01em] truncate">
+                                <a
+                                    href="https://open.kakao.com/o/sOwPw83g"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="hover:underline underline-offset-4 decoration-void-stone"
+                                >
+                                    오픈채팅 바로가기
+                                </a>
+                            </dd>
+                        </div>
+                        <a
+                            href="https://open.kakao.com/o/sOwPw83g"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="카카오톡 오픈채팅 바로가기"
+                            class="shrink-0 min-h-[44px] px-2 flex items-center justify-center text-void-stone hover:text-void-charcoal transition-colors"
+                        >
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7" />
+                                <path d="M8 7h9v9" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- 추후 인스타그램 추가 시 아래 주석 해제 -->
+                    <!--
+                    <div class="py-3 flex items-center justify-between gap-3 min-h-[56px]">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 min-w-0">
+                            <dt class="w-[74px] shrink-0 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-void-stone">
+                                Instagram
+                            </dt>
+                            <dd class="text-[14px] text-void-charcoal tracking-[0.01em] truncate">
+                                <a
+                                    href="https://instagram.com/아이디입력"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="hover:underline underline-offset-4 decoration-void-stone"
+                                >
+                                    @아이디입력
+                                </a>
+                            </dd>
+                        </div>
+                        <a
+                            href="https://instagram.com/아이디입력"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="인스타그램 바로가기"
+                            class="shrink-0 min-h-[44px] px-2 flex items-center justify-center text-void-stone hover:text-void-charcoal transition-colors"
+                        >
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7" />
+                                <path d="M8 7h9v9" />
+                            </svg>
+                        </a>
+                    </div>
+                    -->
+                </dl>
+            </section>
+        </div>
+
+        <!-- 6. 미니멀 푸터 -->
+        <footer class="px-7 pt-5 pb-8 border-t border-void-hairline bg-void-surface flex flex-col items-center gap-4">
+            <button
+                type="button"
+                id="copyCardUrlBtn"
+                class="min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 text-[12.5px] font-medium text-void-ink border border-void-hairline bg-white rounded-xl transition-colors hover:border-void-charcoal hover:text-void-charcoal active:bg-void-backdrop"
+            >
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+                <span>명함 링크 복사</span>
+            </button>
+
+            <p class="font-serif text-[12px] tracking-[0.12em] text-void-stone">
+                © VOID LAB. All rights reserved.
+            </p>
+        </footer>
+    </main>
+
+    <!-- 하단 플로팅 토스트 알림 -->
+    <div
+        id="toast"
+        role="status"
+        aria-live="polite"
+        class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-void-charcoal text-white text-[13px] font-normal tracking-[0.02em] rounded-xl shadow-[0_12px_32px_rgba(43,42,41,0.25)] opacity-0 translate-y-2 pointer-events-none transition-all duration-300 whitespace-nowrap max-w-[90vw] truncate"
+    ></div>
+
+    <script>
+        // 토스트 알림 자동 닫힘 타이머
+        let toastTimer = null;
+
+        /**
+         * 로고 이미지(./logo.jpg)가 로드되면 오프스크린 캔버스로 상단 좌·우 모서리 픽셀 색상을 추출하여
+         * #cardHeader 배경색에 적용해 로고와 헤더 사이에 경계선이 전혀 보이지 않도록 맞춥니다.
+         * @param {HTMLImageElement} imgEl - 로드 완료된 로고 이미지 요소
+         */
+        function syncHeaderBackground(imgEl) {
+            try {
+                const headerEl = document.getElementById('cardHeader');
+                if (!headerEl || !imgEl || !imgEl.naturalWidth || !imgEl.naturalHeight) return;
+
+                const width = imgEl.naturalWidth;
+                const height = imgEl.naturalHeight;
+
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+
+                const ctx = canvas.getContext('2d', { willReadFrequently: true });
+                if (!ctx) return;
+
+                ctx.drawImage(imgEl, 0, 0, width, height);
+
+                // 상단 좌·우 모서리 픽셀 샘플링 후 평균 RGB 계산
+                const leftX = Math.min(2, width - 1);
+                const rightX = Math.max(0, width - 3);
+                const topY = Math.min(2, height - 1);
+
+                const pLeft = ctx.getImageData(leftX, topY, 1, 1).data;
+                const pRight = ctx.getImageData(rightX, topY, 1, 1).data;
+
+                // 투명 배경이 아닌 경우에만 헤더 배경색 적용
+                if (pLeft[3] > 20 && pRight[3] > 20) {
+                    const r = Math.round((pLeft[0] + pRight[0]) / 2);
+                    const g = Math.round((pLeft[1] + pRight[1]) / 2);
+                    const b = Math.round((pLeft[2] + pRight[2]) / 2);
+
+                    const toHex = (val) => val.toString(16).padStart(2, '0').toUpperCase();
+                    headerEl.style.backgroundColor = `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+                }
+            } catch (err) {
+                // CORS 또는 로컬 파일 보안 정책으로 캔버스 읽기가 제한되면 기본 #D8D4CC 유지
+                console.warn('로고 배경색 자동 추출을 건너뛰고 기본 #D8D4CC 컬러를 유지합니다.', err);
+            }
+        }
+
+        /**
+         * ./logo.jpg가 아직 없는 환경(독립 미리보기 등)에서 깨진 이미지 아이콘 대신
+         * 미니멀한 타이포그래피 로고 폴백을 자연스럽게 표시합니다.
+         */
+        function showLogoFallback() {
+            const logoImg = document.getElementById('logoImg');
+            const fallbackEl = document.getElementById('logoTextFallback');
+            if (logoImg) {
+                logoImg.style.display = 'none';
+            }
+            if (fallbackEl) {
+                fallbackEl.classList.remove('hidden');
+                fallbackEl.classList.add('flex');
+            }
+        }
+
+        /**
+         * 하단 플로팅 토스트 알림 표시
+         * @param {string} message - 표시할 메시지
+         */
+        function showToast(message) {
+            const toastEl = document.getElementById('toast');
+            if (!toastEl) return;
+
+            toastEl.textContent = message;
+            toastEl.classList.remove('opacity-0', 'translate-y-2');
+            toastEl.classList.add('opacity-100', 'translate-y-0');
+
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toastEl.classList.remove('opacity-100', 'translate-y-0');
+                toastEl.classList.add('opacity-0', 'translate-y-2');
+            }, 2400);
+        }
+
+        /**
+         * 모바일 브라우저 및 iFrame 환경에서도 안정적으로 작동하는 클립보드 복사 함수
+         * @param {string} text - 복사할 텍스트
+         * @param {string} successMessage - 복사 완료 토스트 문구
+         */
+        function copyToClipboard(text, successMessage = '복사되었습니다') {
+            try {
+                const tempTextarea = document.createElement('textarea');
+                tempTextarea.value = text;
+                tempTextarea.setAttribute('readonly', '');
+                tempTextarea.style.position = 'fixed';
+                tempTextarea.style.top = '-9999px';
+                tempTextarea.style.left = '-9999px';
+                document.body.appendChild(tempTextarea);
+
+                tempTextarea.select();
+                tempTextarea.setSelectionRange(0, tempTextarea.value.length);
+
+                const isCopied = document.execCommand('copy');
+                document.body.removeChild(tempTextarea);
+
+                if (isCopied) {
+                    showToast(successMessage);
+                } else {
+                    showToast('복사에 실패했습니다. 직접 선택해 복사해 주세요.');
+                }
+            } catch (err) {
+                console.error('클립보드 복사 오류:', err);
+                showToast('복사에 실패했습니다. 직접 선택해 복사해 주세요.');
+            }
+        }
+
+        /**
+         * UTF-8 BOM 포함 vCard(.vcf) 파일을 생성해 스마트폰 연락처로 바로 저장할 수 있게 다운로드합니다.
+         */
+        function downloadVCard() {
+            try {
+                const vCardLines = [
+                    'BEGIN:VCARD',
+                    'VERSION:3.0',
+                    'N;CHARSET=UTF-8:김;석민;;;',
+                    'FN;CHARSET=UTF-8:김석민',
+                    'ORG;CHARSET=UTF-8:VOID LAB (보이드랩)',
+                    'TITLE;CHARSET=UTF-8:대표',
+                    'TEL;TYPE=CELL:010-2882-8977',
+                    'EMAIL;TYPE=INTERNET:voidlab01@naver.com',
+                    'URL:https://blog.naver.com/voidlab_',
+                    'NOTE;CHARSET=UTF-8:수도권 전 지역 시공·상담 / 카카오톡 오픈채팅: https://open.kakao.com/o/sOwPw83g',
+                    'END:VCARD'
+                ];
+
+                // iOS/Android 한글 깨짐 방지를 위한 UTF-8 BOM 추가
+                const bom = new Uint8Array([0xEF, 0xBB, 0xBF]);
+                const blob = new Blob([bom, vCardLines.join('\r\n')], {
+                    type: 'text/vcard;charset=utf-8'
+                });
+
+                const objectUrl = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = objectUrl;
+                link.download = 'VOID_LAB_김석민_대표.vcf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+                showToast('연락처 파일(.vcf)이 저장되었습니다');
+            } catch (err) {
+                console.error('vCard 다운로드 오류:', err);
+                showToast('연락처 저장 중 오류가 발생했습니다.');
+            }
+        }
+
+        // 페이지 초기화 및 인터랙션 이벤트 바인딩
+        document.addEventListener('DOMContentLoaded', () => {
+            // 캐시된 로고 이미지가 이미 로드된 경우에도 즉시 배경색 매칭 실행
+            const logoImg = document.getElementById('logoImg');
+            if (logoImg && logoImg.complete && logoImg.naturalWidth > 0) {
+                syncHeaderBackground(logoImg);
+            }
+
+            // 연락처 저장 버튼
+            const saveContactBtn = document.getElementById('saveContactBtn');
+            if (saveContactBtn) {
+                saveContactBtn.addEventListener('click', downloadVCard);
+            }
+
+            // 개별 연락처 원클릭 복사 버튼
+            document.querySelectorAll('.copy-btn').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const value = btn.getAttribute('data-copy') || '';
+                    copyToClipboard(value, '복사되었습니다');
+                });
+            });
+
+            // 명함 링크 복사 버튼
+            const copyCardUrlBtn = document.getElementById('copyCardUrlBtn');
+            if (copyCardUrlBtn) {
+                copyCardUrlBtn.addEventListener('click', () => {
+                    copyToClipboard(window.location.href, '명함 링크가 복사되었습니다');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
